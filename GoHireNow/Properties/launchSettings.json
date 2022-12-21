@@ -1,0 +1,30 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:9322/hire-virtual-assistant",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:9322/hire-virtual-assistant",
+      "environmentVariables": {
+        "ASPNETCORE_URLS": "http://localhost:9322/hire-virtual-assistant",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "hire-virtual-assistant.WebServer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:9322/hire-virtual-assistant",
+      "environmentVariables": {
+        "ASPNETCORE_URLS": "http://localhost:9322/hire-virtual-assistant",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

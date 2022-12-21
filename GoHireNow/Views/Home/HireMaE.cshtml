@@ -1,0 +1,800 @@
+﻿@{ ProfileWorkerModel profileWorker = ViewBag.ProfileWorkerModel;
+    RelatedWorkersModel relatedWorkers = ViewBag.RelatedWorkersModel; }
+
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div>
+    <div class="overallsectionsdiv">
+        <div class="overallsectionsdiv">
+            @await Html.PartialAsync("Header")
+        </div>
+        <div class="registration worker-profile" id="edit-profile">
+            <div class="container pt-3 row-padd">
+                <a href="/register">
+                    <div class="image-banner-wrapper edit-profile-banner custom-big-width">
+                        <img src="~/images/ddeaa79f6f9c3431fe1097f75652cc56.png"
+                             alt="Join For Free Banner">
+                    </div>
+                </a>
+                <div class=" row inner-div pl-0 pt-5">
+                    <h1>Hire @profileWorker.fullName</h1>
+                    <div class="work-profile d-flex flex-column align-items-end">
+                        <div class="work-profile-byutton-wrapper">
+                            <button class="btn save-btn text-uppercase" id="btn-message">Message</button>
+                            <button class="btn save-btn text-uppercase" id="btn-hire">Hire</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-lg-4 pl-0">
+                        <div class="row left-side-outer">
+                            <div class="col-sm-12 left-side-inner">
+                                <div class="user-div">
+                                    <div class="user-pic-upload p-0">
+                                        <img src="@profileWorker.profilePicturePath"
+                                             alt="">
+                                    </div>
+                                    <div class="user-pic">
+                                        <span>
+                                            <h4>@profileWorker.fullName</h4>
+                                            <h4>$@profileWorker.salary/Month</h4>
+                                        </span>
+                                        <h3 class="text-center" style="font-weight: 200; font-size: 16px;">@profileWorker.countryName</h3>
+                                    </div>
+                                </div>
+                                <div class="member-details second-profile">
+                                    <p>Member since: <span> <time>@(profileWorker.memberSince.ToString("MMM d yyyy"))</time></span></p>
+                                    <p>
+                                        Last logged:
+                                        <span>
+                                            <time>
+                                                @{ var dayDiff = DateTime.Now.Subtract(profileWorker.lastLoginTime).TotalDays;
+                                                    if (dayDiff < 1)
+                                                    { @(Math.Round(dayDiff * 24, 0) + " hours") }
+                                                    else if (dayDiff >= 1 && dayDiff <= 30)
+                                                    { @(Math.Round(dayDiff, 0) + " days") }
+                                                    else if (dayDiff >= 31 && dayDiff <= 365)
+                                                    { @(Math.Round(dayDiff / 30, 0) + " months") }
+                                                    else
+                                                    { @(Math.Round(dayDiff / 365, 0) + " years") } }
+                                            </time> ago
+                                        </span>
+                                    </p>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="other-va-container d-none d-md-block d-lg-block d-xl-block">
+                            <br />
+                            <h2 class="other-va-heading">Other Virtual Assistants</h2>
+                            @{ foreach (Worker worker in relatedWorkers.Workers)
+                                {
+                                    var ntitle = worker.Title.Replace(" ", "-").ToLower();
+                                    ntitle = ntitle.Replace("\"", "").ToLower();
+                                    ntitle = ntitle.Replace("'", "").ToLower();
+                                    ntitle = ntitle.Replace(".", "").ToLower();
+                                    ntitle = ntitle.Replace("/", "-").ToLower();
+                                    ntitle = ntitle.Replace("|", "-").ToLower();
+                                    ntitle = ntitle.Replace("&", "-").ToLower();
+                                    ntitle = ntitle.Replace("\\", "-").ToLower();
+                                    ntitle = ntitle.Replace("%", "").ToLower();
+                                    ntitle = ntitle.Replace("#", "").ToLower();
+                                    ntitle = ntitle.Replace("@", "").ToLower();
+                                    ntitle = ntitle.Replace(",", "-").ToLower();
+                                    ntitle = ntitle.Replace("*", "").ToLower();
+                                    ntitle = ntitle.Replace("=", "").ToLower();
+                                    ntitle = ntitle.Replace("?", "").ToLower();
+                                    ntitle = ntitle.Replace("$", "").ToLower();
+                                    ntitle = ntitle.Replace("+", "-").ToLower();
+
+
+                                    ntitle = ntitle.Replace("-----", "-").ToLower();
+                                    ntitle = ntitle.Replace("----", "-").ToLower();
+                                    ntitle = ntitle.Replace("---", "-").ToLower();
+                                    ntitle = ntitle.Replace("--", "-").ToLower();
+
+                                    var ncountryname = worker.CountryName.Replace(" ", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\"", "").ToLower();
+                                    ncountryname = ncountryname.Replace("'", "-").ToLower();
+                                    ncountryname = ncountryname.Replace(".", "").ToLower();
+                                    ncountryname = ncountryname.Replace("/", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("|", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("&", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\\", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("%", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("#", "").ToLower();
+                                    ncountryname = ncountryname.Replace("@", "").ToLower();
+                                    ncountryname = ncountryname.Replace(",", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("*", "").ToLower();
+                                    ncountryname = ncountryname.Replace("=", "").ToLower();
+                                    ncountryname = ncountryname.Replace("?", "").ToLower();
+                                    ncountryname = ncountryname.Replace("$", "").ToLower();
+                                    ncountryname = ncountryname.Replace("+", "-").ToLower();
+
+                                    ncountryname = ncountryname.Replace("-----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("---", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("--", "-").ToLower();
+
+
+                                    var nname = worker.Name.Replace(" ", "-").ToLower();
+                                    nname = nname.Replace("\"", "").ToLower();
+                                    nname = nname.Replace("'", "").ToLower();
+                                    nname = nname.Replace(".", "").ToLower();
+                                    nname = nname.Replace("|", "-").ToLower();
+                                    nname = nname.Replace("/", "-").ToLower();
+                                    nname = nname.Replace("&", "").ToLower();
+                                    nname = nname.Replace("\\", "-").ToLower();
+                                    nname = nname.Replace("%", "").ToLower();
+                                    nname = nname.Replace("#", "").ToLower();
+                                    nname = nname.Replace("@", "").ToLower();
+                                    nname = nname.Replace(",", "-").ToLower();
+                                    nname = nname.Replace("*", "").ToLower();
+                                    nname = nname.Replace("=", "").ToLower();
+                                    nname = nname.Replace("?", "").ToLower();
+                                    nname = nname.Replace("$", "").ToLower();
+                                    nname = nname.Replace("+", "-").ToLower();
+
+                                    nname = nname.Replace("-----", "-").ToLower();
+                                    nname = nname.Replace("----", "-").ToLower();
+                                    nname = nname.Replace("---", "-").ToLower();
+                                    nname = nname.Replace("--", "-").ToLower();
+
+
+                    <div class="va-mobile-card card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="user-pic-others mr-4 pt-0">
+                                    <a target="_blank"
+                                       href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">
+                                        <img src="@worker.ProfilePicturePath"
+                                             alt="">
+                                    </a>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h4>
+                                        <a target="_blank" style="color:#000000"
+                                           href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">@worker.Name</a>
+                                    </h4>
+                                    <div class="d-flex wrapper-rating">
+                                        <span class="number-rating">@Math.Round(worker.Rating, 1).ToString("0.0")</span>
+                                        <div class="star-rating">
+                                            <span style="display: inline-block; direction: ltr;">
+                                                <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p>@worker.Title</p>
+                                </div>
+                            </div>
+                            <div class="d-flex border-top align-items-center">
+                                <div class="d-flex flex-column w-75">
+                                    <b>$@worker.Salary/Month</b>
+                                    <p>
+                                        Last logged:
+                                        <span>
+                                            <time>
+                                                @{ dayDiff = DateTime.Now.Subtract(worker.LastLoginDate).TotalDays;
+                                                    if (dayDiff < 1)
+                                                    { @(Math.Round(dayDiff * 24, 0) + " hours") }
+                                                    else if (dayDiff >= 1 && dayDiff <= 30)
+                                                    { @(Math.Round(dayDiff, 0) + " days") }
+                                                    else if (dayDiff >= 31 && dayDiff <= 365)
+                                                    { @(Math.Round(dayDiff / 30, 0) + " months") }
+                                                    else
+                                                    { @(Math.Round(dayDiff / 365, 0) + " years") } }
+                                            </time> ago
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="w-25">
+                                    <a target="_blank"
+                                       href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId" class="btn view-btn text-uppercase">
+                                        View
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="va-desktop-card row left-side-outer-others">
+                                        <div class="col-sm-12 col-sm-12-others">
+                                            <div class="row">
+                                                <div class="col-sm-4 left-side-inner-others">
+                                                    <div class="user-pic-others">
+                                                        <a target="_blank"
+                                                           href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">
+                                                            <img src="@worker.ProfilePicturePath"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8 left-side-inner-others">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <h4>
+                                                                <a target="_blank" style="color:#000000"
+                                                                   href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">@worker.Name</a>
+                                                            </h4>
+                                                            <div class="wrapper-rating">
+                                                                <span class="number-rating">@Math.Round(worker.Rating, 1).ToString("0.0")</span>
+                                                                <div class="star-rating">
+                                                                    <span style="display: inline-block; direction: ltr;">
+                                                                        <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <p>@worker.Title</p>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <a target="_blank"
+                                                               href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId" class="btn view-btn text-uppercase">
+                                                                View
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <p class="others-skills">
+                                                        <!--
+                                                           @{
+                                                                List<string> skillsArrayOthers = new List<string>();
+                                                                foreach (Skill item in worker.Skills)
+                                                                {
+                                                                    skillsArrayOthers.Add(@item.Name);
+                                                                }
+                                                                skillsArrayOthers.ToArray();
+                                                                @String.Join(", ", skillsArrayOthers);
+                                                            }
+                                                        </p>
+                                                        -->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 left-side-inner-others">
+                                                    <div class="row" style="padding-top: 15px;padding-bottom: 5px;">
+                                                        <div class="col-sm-4">
+                                                            <b>$@worker.Salary/Month</b>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <p>
+                                                                Last logged:
+                                                                <span>
+                                                                    <time>
+                                                                        @{ dayDiff = DateTime.Now.Subtract(worker.LastLoginDate).TotalDays;
+                                                                            if (dayDiff < 1)
+                                                                            { @(Math.Round(dayDiff * 24, 0) + " hours") }
+                                                                            else if (dayDiff >= 1 && dayDiff <= 30)
+                                                                            { @(Math.Round(dayDiff, 0) + " days") }
+                                                                            else if (dayDiff >= 31 && dayDiff <= 365)
+                                                                            { @(Math.Round(dayDiff / 30, 0) + " months") }
+                                                                            else
+                                                                            { @(Math.Round(dayDiff / 365, 0) + " years") } }
+                                                                    </time> ago
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> } }
+
+                        </div>
+                    </div>
+                    <div class=" col-lg-8 pl-0 right-side">
+                        <div class="right-side-top">
+                            <div style="margin-top: 20px;">
+                                <h2 style="font-size: 18px; font-family: lato; color: rgb(0, 0, 0); line-height: 1.652; font-weight: bold; margin-bottom: 0px;">
+                                    @profileWorker.title
+                                </h2>
+                            </div>
+                            <div class="mb-3">
+                                <div class="wrapper-rating">
+                                    <span class="number-rating">@Math.Round(profileWorker.rating, 1).ToString("0.0")</span>
+                                    <div class="star-rating">
+                                        <span style="display: inline-block; direction: ltr;">
+                                            <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                    <span class="fa fa-star"></span>
+                                                </span>
+                                            </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                    <span class="fa fa-star"></span>
+                                                </span>
+                                            </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                    <span class="fa fa-star"></span>
+                                                </span>
+                                            </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                    <span class="fa fa-star"></span>
+                                                </span>
+                                            </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                    <span class="fa fa-star"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 style="height: 100%; font-weight: 200; font-size: 16px; overflow: hidden;">
+                                @profileWorker.description
+                            </h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="custom-big-width">
+                                <thead>
+                                    <tr>
+                                        <th>EXPECTED SALARY</th>
+                                        <th>AVAILABILTY</th>
+                                        <th>EDUCATION</th>
+                                        <th>EXPERIENCE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="pl-0 text-center">$@profileWorker.salary/Month</td>
+                                        <td class="pl-0 text-center">@profileWorker.availability</td>
+                                        <td class="pl-0 text-center">@profileWorker.education</td>
+                                        <td class="pl-0 text-center">@profileWorker.experience</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="custom-small-width">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th style="width: 50%;">EXPECTED SALARY</th>
+                                        <th style="width: 50%;">AVAILABILTY</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="text-align: center;">
+                                        <td class="pl-0 text-center">$@profileWorker.salary/Month</td>
+                                        <td class="pl-0 text-center">@profileWorker.availability</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="custom-small-width">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th style="width: 50%;">EDUCATION</th>
+                                        <th style="width: 50%;">EXPERIENCE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="text-align: center;">
+                                        <td class="pl-0 text-center">$@profileWorker.education</td>
+                                        <td class="pl-0 text-center">@profileWorker.experience</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row skills">
+                            <div class="col-sm-12 pl-0">
+                                <div class="mini-head">
+                                    <h2 class="ml-15">Skills</h2>
+                                    <div class="added-skills overflow-auto">
+                                        @{ foreach (Skill item in profileWorker.skills)
+                                            {
+                                <div class="skill mr-0 ml-15 mt-2 ">
+                                    <p class="mr-0  "><a target="_blank" style="color:#000000" href="/hire-virtual-assistant/@item.friendlyUrl/@item.jobTitleId">@item.Name</a></p>&nbsp;
+                                </div> } }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row skills">
+                            <div class="col-sm-12 pl-0">
+                                <div class="mini-head">
+                                    @{ if (profileWorker.portfolios.Count > 0)
+                                        {
+                            <h2 class="ml-15">Portfolio</h2> } }
+                                    <div class="added-portfolio overflow-auto ml-15">
+                                        @{ if (profileWorker.portfolios.Count > 0)
+                                            {
+                                                foreach (Portfolio newItem in profileWorker.portfolios)
+                                                {
+                                <a class="click-file" target="_blank">
+                                    <div class="portfolio-file">
+                                        @{ if (!String.IsNullOrEmpty(newItem.thumbnail))
+                                            {
+                        <img src="@newItem.thumbnail"
+                             alt="@profileWorker.fullName" class="portfolio-file-picture portfolio-wrapper"> }
+                                else
+                                {
+                                    <img src="~/images/f252b2f0df22a9c3e03bd67a68a1fd49.webp"
+                                         alt="@profileWorker.fullName" class="portfolio-file-picture portfolio-wrapper"> } }
+                                                    <p class="fileextension portfolio-wrapper">@newItem.fileExtension</p>
+                                                </div>
+                                                <p class="black portfolio-wrapper">@newItem.fileName</p>
+                                            </a> }
+                                    }
+                                    else
+                                    {
+
+                                    } }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="other-va-container d-xs-block d-sm-block d-md-none d-lg-none d-xl-none">
+                            <h2 class="other-va-heading">Other Virtual Assistants</h2>
+                            @{ foreach (Worker worker in relatedWorkers.Workers)
+                                {
+                                    var ntitle = worker.Title.Replace(" ", "-").ToLower();
+                                    ntitle = ntitle.Replace("\"", "").ToLower();
+                                    ntitle = ntitle.Replace("'", "").ToLower();
+                                    ntitle = ntitle.Replace(".", "").ToLower();
+                                    ntitle = ntitle.Replace("/", "-").ToLower();
+                                    ntitle = ntitle.Replace("|", "-").ToLower();
+                                    ntitle = ntitle.Replace("&", "-").ToLower();
+                                    ntitle = ntitle.Replace("\\", "-").ToLower();
+                                    ntitle = ntitle.Replace("%", "").ToLower();
+                                    ntitle = ntitle.Replace("#", "").ToLower();
+                                    ntitle = ntitle.Replace("@", "").ToLower();
+                                    ntitle = ntitle.Replace(",", "-").ToLower();
+                                    ntitle = ntitle.Replace("*", "").ToLower();
+                                    ntitle = ntitle.Replace("=", "").ToLower();
+                                    ntitle = ntitle.Replace("?", "").ToLower();
+                                    ntitle = ntitle.Replace("$", "").ToLower();
+                                    ntitle = ntitle.Replace("+", "-").ToLower();
+
+
+                                    ntitle = ntitle.Replace("-----", "-").ToLower();
+                                    ntitle = ntitle.Replace("----", "-").ToLower();
+                                    ntitle = ntitle.Replace("---", "-").ToLower();
+                                    ntitle = ntitle.Replace("--", "-").ToLower();
+
+                                    var ncountryname = worker.CountryName.Replace(" ", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\"", "").ToLower();
+                                    ncountryname = ncountryname.Replace("'", "-").ToLower();
+                                    ncountryname = ncountryname.Replace(".", "").ToLower();
+                                    ncountryname = ncountryname.Replace("/", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("|", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("&", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\\", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("%", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("#", "").ToLower();
+                                    ncountryname = ncountryname.Replace("@", "").ToLower();
+                                    ncountryname = ncountryname.Replace(",", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("*", "").ToLower();
+                                    ncountryname = ncountryname.Replace("=", "").ToLower();
+                                    ncountryname = ncountryname.Replace("?", "").ToLower();
+                                    ncountryname = ncountryname.Replace("$", "").ToLower();
+                                    ncountryname = ncountryname.Replace("+", "-").ToLower();
+
+                                    ncountryname = ncountryname.Replace("-----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("---", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("--", "-").ToLower();
+
+
+                                    var nname = worker.Name.Replace(" ", "-").ToLower();
+                                    nname = nname.Replace("\"", "").ToLower();
+                                    nname = nname.Replace("'", "").ToLower();
+                                    nname = nname.Replace(".", "").ToLower();
+                                    nname = nname.Replace("|", "-").ToLower();
+                                    nname = nname.Replace("/", "-").ToLower();
+                                    nname = nname.Replace("&", "").ToLower();
+                                    nname = nname.Replace("\\", "-").ToLower();
+                                    nname = nname.Replace("%", "").ToLower();
+                                    nname = nname.Replace("#", "").ToLower();
+                                    nname = nname.Replace("@", "").ToLower();
+                                    nname = nname.Replace(",", "-").ToLower();
+                                    nname = nname.Replace("*", "").ToLower();
+                                    nname = nname.Replace("=", "").ToLower();
+                                    nname = nname.Replace("?", "").ToLower();
+                                    nname = nname.Replace("$", "").ToLower();
+                                    nname = nname.Replace("+", "-").ToLower();
+
+                                    nname = nname.Replace("-----", "-").ToLower();
+                                    nname = nname.Replace("----", "-").ToLower();
+                                    nname = nname.Replace("---", "-").ToLower();
+                                    nname = nname.Replace("--", "-").ToLower();
+
+                    <div class="va-mobile-card card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="user-pic-others mr-4 pt-0">
+                                    <a target="_blank"
+                                       href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">
+                                        <img src="@worker.ProfilePicturePath"
+                                             alt="">
+                                    </a>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h4>
+                                        <a target="_blank" style="color:#000000"
+                                           href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">@worker.Name</a>
+                                    </h4>
+                                    <div class="d-flex wrapper-rating">
+                                        <span class="number-rating">@Math.Round(worker.Rating, 1).ToString("0.0")</span>
+                                        <div class="star-rating">
+                                            <span style="display: inline-block; direction: ltr;">
+                                                <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                    <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                        <span class="fa fa-star"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p>@worker.Title</p>
+                                </div>
+                            </div>
+                            <div class="d-flex border-top align-items-center">
+                                <div class="d-flex flex-column w-75">
+                                    <b>$@worker.Salary/Month</b>
+                                    <p>
+                                        Last logged:
+                                        <span>
+                                            <time>
+                                                @{ dayDiff = DateTime.Now.Subtract(worker.LastLoginDate).TotalDays;
+                                                    if (dayDiff < 1)
+                                                    { @(Math.Round(dayDiff * 24, 0) + " hours") }
+                                                    else if (dayDiff >= 1 && dayDiff <= 30)
+                                                    { @(Math.Round(dayDiff, 0) + " days") }
+                                                    else if (dayDiff >= 31 && dayDiff <= 365)
+                                                    { @(Math.Round(dayDiff / 30, 0) + " months") }
+                                                    else
+                                                    { @(Math.Round(dayDiff / 365, 0) + " years") } }
+                                            </time> ago
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="w-25">
+                                    <a target="_blank"
+                                       href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId" class="btn view-btn text-uppercase">
+                                        View
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="va-desktop-card row left-side-outer-others">
+                                        <div class="col-sm-12 col-sm-12-others">
+                                            <div class="row">
+                                                <div class="col-sm-3 left-side-inner-others">
+                                                    <div class="user-pic-others">
+                                                        <a target="_blank"
+                                                           href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">
+                                                            <img src="@worker.ProfilePicturePath"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-9 left-side-inner-others">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <h4>
+                                                                <a target="_blank" style="color:#000000"
+                                                                   href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">@worker.Name</a>
+                                                            </h4>
+                                                            <div class="wrapper-rating">
+                                                                <span class="number-rating">@Math.Round(worker.Rating, 1).ToString("0.0")</span>
+                                                                <div class="star-rating">
+                                                                    <span style="display: inline-block; direction: ltr;">
+                                                                        <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <p>@worker.Title</p>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <a target="_blank"
+                                                               href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@worker.UserUniqueId">
+                                                                <button class="btn view-btn text-uppercase" id="btn-view">View</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <!--
+                                                    <p class="others-skills">
+                                                         @{
+                                                             List<string> skillsArrayOthers = new List<string>();
+                                                             foreach (Skill item in worker.Skills)
+                                                             {
+                                                                 skillsArrayOthers.Add(@item.Name);
+                                                             }
+                                                             skillsArrayOthers.ToArray();
+                                                             @String.Join(", ", skillsArrayOthers);
+                                                         }
+                                                     </p>
+                                                     -->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 left-side-inner-others">
+                                                    <div class="row" style="padding-top: 15px;padding-bottom: 5px;">
+                                                        <div class="col-sm-4">
+                                                            <b>$@worker.Salary/Month</b>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <p>
+                                                                Last logged:
+                                                                <span>
+                                                                    <time>
+                                                                        @{ dayDiff = DateTime.Now.Subtract(worker.LastLoginDate).TotalDays;
+                                                                            if (dayDiff < 1)
+                                                                            { @(Math.Round(dayDiff * 24, 0) + " hours") }
+                                                                            else if (dayDiff >= 1 && dayDiff <= 30)
+                                                                            { @(Math.Round(dayDiff, 0) + " days") }
+                                                                            else if (dayDiff >= 31 && dayDiff <= 365)
+                                                                            { @(Math.Round(dayDiff / 30, 0) + " months") }
+                                                                            else
+                                                                            { @(Math.Round(dayDiff / 365, 0) + " years") } }
+                                                                    </time> ago
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> } }
+                        </div>
+                        <a href="/register">
+                            <div class="image-banner-wrapper profile-banner custom-small-width">
+                                <img src="~/images/banner-bottom-small.webp" alt="Join For Free Banner">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @await Html.PartialAsync("Footer")
+    </div>
+</div>
+<div class="swal2-container swal2-center swal2-shown d-none" id="show-message" style="overflow-y: auto;">
+    <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="width: 950px; display: flex;">
+        <div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-error" style="display: none;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><div class="swal2-icon swal2-question" style="display: none;"></div><div class="swal2-icon swal2-warning swal2-animate-warning-icon" style="display: flex;"></div><div class="swal2-icon swal2-info" style="display: none;"></div><div class="swal2-icon swal2-success" style="display: none;"><div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div><span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span><div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div><div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div></div><img class="swal2-image" style="display: none;"><h2 class="swal2-title" id="swal2-title" style="display: none;"></h2><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button></div><div class="swal2-content">
+            <div id="swal2-content" style="display: block;">
+                <h2>You need to create an account to contact this candidates.</h2>
+                <p style="margin-top: 50px;"></p>
+            </div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;"><div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select class="swal2-select" style="display: none;"></select><div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox" style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea class="swal2-textarea" style="display: none;"></textarea><div class="swal2-validation-message" id="swal2-validation-message"></div>
+        </div>
+        <div class="swal2-actions">
+            <a href="/register"><button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block; background-color: rgb(237, 123, 24); border-left-color: rgb(237, 123, 24); border-right-color: rgb(237, 123, 24);">Sign Up</button></a>
+            <button id="btn-cancel" type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: inline-block;">Cancel</button>
+        </div><div class="swal2-footer" style="display: none;"></div>
+    </div>
+</div>
+<footer>
+    <script>
+        $(window).resize(function () {
+            var width = $(document).width();
+            if (width <= 479) {
+                $(".custom-small-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-show");
+                $(".custom-big-width").addClass("d-none");
+            } else {
+                $(".custom-big-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-none");
+                $(".custom-big-width").addClass("d-show");
+            }
+        });
+        $(document).ready(function () {
+            var width = $(document).width();
+            if (width <= 479) {
+                $(".custom-small-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-show");
+                $(".custom-big-width").addClass("d-none");
+            } else {
+                $(".custom-big-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-none");
+                $(".custom-big-width").addClass("d-show");
+            }
+            $("#menuToggle").click(function () {
+                if ($("#menu").hasClass("d-none")) {
+                    $("#menu").removeClass("d-none");
+                } else {
+                    $("#menu").addClass("d-none");
+                };
+            });
+            $("#btn-cancel").click(function () {
+                $("#show-message").addClass("d-none");
+            });
+            $(".click-file").click(function () {
+                if ($("#show-message").hasClass("d-none")) {
+                    $("#show-message").removeClass("d-none");
+                } else {
+                    $("#show-message").addClass("d-none");
+                };
+            });
+            $("#btn-message").click(function () {
+                if ($("#show-message").hasClass("d-none")) {
+                    $("#show-message").removeClass("d-none");
+                } else {
+                    $("#show-message").addClass("d-none");
+                };
+            });
+            $("#btn-hire").click(function () {
+                if ($("#show-message").hasClass("d-none")) {
+                    $("#show-message").removeClass("d-none");
+                } else {
+                    $("#show-message").addClass("d-none");
+                };
+            });
+        });
+    </script>
+    <script type="text/javascript"
+            src="~/js/vendors_main.e8ed1db5d1272f5129c5.js"></script>
+</footer>

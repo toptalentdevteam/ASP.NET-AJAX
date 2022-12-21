@@ -1,0 +1,108 @@
+﻿@{
+
+    if (@Context.Request.Path==null)
+    {
+        ViewData["Canonical"] = "https://www.evirtualassistants.com/hire-virtual-assistant";
+        ViewData["Title"] = "Hire Virtual Assistant In Philippines - eVirtualAssistants";
+        ViewData["Description"] = "Looking to Hire virtual assistants from the Philippines? eVirtualAssistants is the #1 site in hiring top virtual assistants!.";
+    }
+    else
+    {
+        var temp= @Context.Request.Path.ToString().Split('/');
+        if (temp.Length == 3)
+        {
+            DetailsWorkerModel detailsWorker = ViewBag.DetaisWorkerModel;
+            ViewData["Title"] = "Hire Our " + detailsWorker.JobBigTitle + " Virtual Assistants Today! - eVirtualAssistant";
+            ViewData["Description"] = "Browse Our " + detailsWorker.JobBigTitle + " Virtual Assistants. " + detailsWorker.JobDescripton;
+        }
+        else
+        {
+            ProfileWorkerModel profileWorker = ViewBag.ProfileWorkerModel;
+            ViewData["Title"] = "Hire " + profileWorker.fullName + " A " + profileWorker.title + " From  " + profileWorker.countryName;
+            ViewData["Description"] = profileWorker.description;
+        }
+        ViewData["Canonical"] = "https://www.evirtualassistants.com/hire-virtual-assistant"+@Context.Request.Path;
+    }
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="/">-->
+    <base href=".">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="shortcut icon" href="https://www.evirtualassistants.com/gohirenow.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="~/css/font-awesome.min.css">
+    <title>@ViewData["Title"]</title>
+
+    <link href="~/css/vendors_main.50764931f5a650d9dd95.css"
+          rel="stylesheet">
+    <link href="~/css/main.50764931f5a650d9dd95.css"
+          rel="stylesheet">
+    <script async=""
+            src="~/js/analytics.js"></script>
+    <script type="text/javascript" async=""
+            src="~/js/analytics.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
+    <script charset="utf-8"
+            src="~/js/16.304d645efb8753b5c855.js"></script>
+    <link rel="canonical" href='@ViewData["Canonical"]' />
+
+    <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
+    
+
+    <style type="text/css">
+
+        iframe#_hjRemoteVarsFrame {
+            display: none !important;
+            width: 1px !important;
+            height: 1px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+    </style>
+    <style>
+
+        #_hjRemoteVarsFrame {
+            opacity: 1 !important;
+            overflow: visible !important
+        }
+    </style>
+    <style>
+
+        #_hjRemoteVarsFrame {
+            opacity: 1 !important;
+            overflow: visible !important
+        }
+    </style>
+    <meta property="description"
+          content="@ViewData["Description"]"
+          data-react-helmet="true">
+    <meta property="og:title" content="eVirtualAssistants - Hire Top‑Quality Remote Employees" data-react-helmet="true">
+    <meta property="og:site_name" content="eVirtualAssistants" data-react-helmet="true">
+    <meta property="og:description"
+          content="1Hire top‑quality remote employees, freelancers and virtual assistants for your next project or startup. Learn how you can save more than 82% on salaries. Outsourcing as it&#39;s best!"
+          data-react-helmet="true">
+    <meta property="og:type" content="website" data-react-helmet="true">
+    <meta property="og:url" content="https://www.evirtualassistants.com" data-react-helmet="true">
+    <meta property="og:image" content="https://www.evirtualassistants.com/images/default.jpg" data-react-helmet="true">
+    <style>
+
+        #_hjRemoteVarsFrame {
+            opacity: 1 !important;
+            overflow: visible !important
+        }
+    </style>
+</head>

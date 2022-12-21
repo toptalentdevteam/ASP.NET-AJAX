@@ -1,0 +1,1278 @@
+﻿@{
+    
+    DetailsWorkerModel detailsWorker = ViewBag.DetaisWorkerModel;
+    
+    @* string active = "active"; *@
+    string PageIndex = ViewBag.PageIndex;
+
+    if (string.IsNullOrEmpty(PageIndex))
+    {
+        PageIndex = "1";
+    }
+
+    int intPage = int.Parse(PageIndex);
+    string currentUrl = "/hire-virtual-assistant" + ViewBag.URL;
+    var currentSumPage = detailsWorker.TotalWorkers / 10;
+    var lengPage = Math.Ceiling(currentSumPage);
+    int lastPage = (int)lengPage - 5;
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div>
+    <div class="overallsectionsdiv">
+        <div class="overallsectionsdiv">
+            @await Html.PartialAsync("Header")
+        </div>
+        <div id="search">
+            <div class="hire-want-section new-home2">
+                <div class="container">
+                    <div class="row align-items-center head-row">
+                        <div class="col-6 hire-page-header-inner" style="padding-left: 0px; padding-right: 0px;">
+                            <div class="largetext1 new-text-h1">
+                                <h1 class="hire-page-header-text" style="margin-top: 44px;">Hire a @detailsWorker.JobBigTitle </h1>
+                            </div>
+                            <div class="hire-work-buttons  ">
+                                <a href="/register">
+                                    <button class="btn text-uppercase new-search-btn ">
+                                        GET STARTED
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6 pr-0">
+                            <div class="voted-div-outer">
+                                <div class="voted-div"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="as-seen-as" style="background-color: rgb(51, 51, 51);">
+                <div class="container-fluid d-flex justify-content-center">
+                    <div class="row black-back black-back-header " style="width: 88%; padding: 25px 49px;">
+                        <!--<h2 class="text-uppercase new-style-needed">as seen on</h2>-->
+                        <div class="black-circle-adj">
+                            <div>
+                                <img src="~/images/43f9f5b331e3275d6056844efc0ac302.webp"
+                                     alt="">
+                            </div>
+                            <div>
+                                <img class="bottom-fixed"
+                                     src="~/images/8000f134dad90b9b6be7d9376a1d63e0.webp"
+                                     alt="">
+                            </div>
+                            <div>
+                                <img src="~/images/c4eae76eb14a3e8e2065a014adc7bd14.webp"
+                                     alt="">
+                            </div>
+                            <div>
+                                <img src="~/images/dd727d0fabc80783c74e3de062b1471e.webp"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pl-0 ">
+                <div class="row align-pad " style="padding: 0% 0px 0% 15px;">
+                    <div class="col-md-12 pl-0">
+                        <h2 class="text-center text-uppercase mb-0"
+                            style="padding: 4% 0px 3% 15px; font-size: 28px; font-weight: 700;">
+                            @detailsWorker.JobTitle
+                        </h2>
+                        <h3 class="mb-0 text-center"
+                            style="padding: 0% 0px 4% 15px; font-size: 22px; line-height: 1.3; font-weight: 500;">
+                            @detailsWorker.JobDescripton
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4  ">
+                        <div class="left-side">
+                            <h4>SEARCH</h4>
+                            <div class="search">
+                                <input type="text" name="keyword" placeholder="Keyword" value="" id="keyword"/><i class="fa fa-search"></i>
+                            </div>
+                            <div class="react-tags">
+                                <div id="tags__selected"
+                                     class="react-tags__selected"
+                                     aria-live="polite"
+                                     aria-relevant="additions removals"></div>
+                                <div class="react-tags__search">
+                                    <div class="react-tags__search-input">
+                                        <input id="skills"
+                                               placeholder="Skills"
+                                               style="width: 37px"
+                                               />
+                                        <input id="skillsChosen"
+                                               type="hidden"
+                                               name="skills"
+                                               />
+                                        <div style="
+                                                    position: absolute;
+                                                    width: 0px;
+                                                    height: 0px;
+                                                    visibility: hidden;
+                                                    overflow: scroll;
+                                                    white-space: pre;
+                                                    font-size: 16px;
+                                                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                                                      'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans',
+                                                      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+                                                      'Segoe UI Symbol', 'Noto Color Emoji';
+                                                    font-weight: 400;
+                                                    font-style: normal;
+                                                    letter-spacing: normal;
+                                                    text-transform: none;
+                                                  ">
+                                            Skills
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <select name="jobType" id="jobType">
+                                <option value="">Availability</option>
+                                <option value="1">Full-time</option>
+                                <option value="2">Part-time</option>
+                                <option value="3">Freelance</option>
+                            </select>
+                            <div>
+                                <select name="education" id="education">
+                                    <option value="">Education</option>
+                                    <option value="Master">Master</option>
+                                    <option value="Bachelor">Bachelor</option>
+                                    <option value="College Level">College Level</option>
+                                    <option value="Self-taught">Self-taught</option>
+                                </select>
+                                <select name="experience" id="experience">
+                                    <option value="">Experience</option>
+                                    <option value="1 years">1+ year</option>
+                                    <option value="2 years">2+ years</option>
+                                    <option value="3 years">3+ years</option>
+                                    <option value="4 years">4+ years</option>
+                                    <option value="5 years">5+ years</option>
+                                    <option value="6 years">6+ years</option>
+                                    <option value="7 years">7+ years</option>
+                                    <option value="8 years">8+ years</option>
+                                    <option value="9 years">9+ years</option>
+                                    <option value="10 years">10+ years</option>
+                                </select>
+                            </div>
+                            <div class="range-div">
+                                <p class="ml-4 font-weight-bold text-dark font-16">Monthly Salary (USD)</p>
+                               <div style="
+                                                                                
+                                          width: 100%;
+                                          height: 42px;
+                                          border-radius: 7px;
+                                          cursor: pointer;
+                                        "></div>
+                               <input data-role="doubleslider"
+                                        data-cls-complete="bg-blue"
+                                        data-hint-always="true"
+                                        data-value-min="100"
+                                        data-value-max="1800"
+                                        data-min=0
+                                        data-max=2000                                        
+                                        data-cls-hint="bg-cyan fg-white"
+                                        data-cls-marker="bg-blue border-50 custom-marker"
+                                        class="ultra-thin cycle-marker" 
+                                        data-on-change-value="$('#event-receiver').val(arguments[0])"/>
+                                <input type="text" hidden id="event-receiver">
+                                 <div class="slider-ghn">
+                                    
+                                    <div class="slider-handles">
+                                        @* <div style="
+                                            left: 0%;
+                                            position: absolute;
+                                            transform: translate(-50%, -50%);
+                                            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                            z-index: 400;
+                                            width: 14px;
+                                            height: 14px;
+                                            cursor: pointer;
+                                            margin-left: 7px;
+                                            ">
+                                        </div>
+                                        <div role="slider"
+                                             aria-valuemin="0"
+                                             aria-valuemax="2000"
+                                             aria-valuenow="0"
+                                             id= "leftSlider"
+                                             style="
+                                                left: 0%;
+                                                position: absolute;
+                                                transform: translate(-50%, -50%);
+                                                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                                z-index: 300;
+                                                width: 14px;
+                                                height: 14px;
+                                                border: 0px;
+                                                border-radius: 50%;
+                                                box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+                                                background-color: rgb(0, 175, 240);
+                                                margin-left: 7px;
+                                              "></div> *@
+                                        <div style="
+                                                left: 100%;
+                                                position: absolute;
+                                                transform: translate(-50%, -50%);
+                                                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                                z-index: 400;
+                                                width: 14px;
+                                                height: 14px;
+                                                cursor: pointer;
+                                                margin-left: -7px;
+                                              ">
+                                        </div>
+                                        @* <div role="slider"
+                                             aria-valuemin="0"
+                                             aria-valuemax="2000"
+                                             aria-valuenow="2000"
+                                             style="
+                                                left: 100%;
+                                                position: absolute;
+                                                transform: translate(-50%, -50%);
+                                                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                                z-index: 300;
+                                                width: 14px;
+                                                height: 14px;
+                                                border: 0px;
+                                                border-radius: 50%;
+                                                box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+                                                background-color: rgb(0, 175, 240);
+                                                margin-left: -7px;
+                                              ">
+                                        </div> *@
+                                    </div>
+                                </div>   
+                                <p>$0<span>$2000+</span></p>
+                                <p class="ml-4 font-weight-bold text-dark font-16">Rating</p>
+                                <div class="wrapper-rating">
+                                    <span class="number-rating" id="rating">0</span>
+                                    <div class="star-rating">
+                                        <span style="display: inline-block; direction: ltr">
+                                            <span style="cursor: pointer; display: inline-block; position: relative" >
+                                                <span>
+                                                    <span class="fa fa-star-o" id="one"></span></span><span style="
+                                                                                                            display: inline-block;
+                                                                                                            position: absolute;
+                                                                                                            overflow: hidden;
+                                                                                                            top: 0px;
+                                                                                                            left: 0px;
+                                                                                                            width: 0%;
+                                                                                                          "><span class="fa fa-star"></span></span>
+                                            </span><span style="cursor: pointer; display: inline-block; position: relative" >
+                                                <span><span class="fa fa-star-o" id="two"></span></span><span style="
+                                                                                                            display: inline-block;
+                                                                                                            position: absolute;
+                                                                                                            overflow: hidden;
+                                                                                                            top: 0px;
+                                                                                                            left: 0px;
+                                                                                                            width: 0%;
+                                                                                                          "><span class="fa fa-star"></span></span>
+                                            </span><span style="cursor: pointer; display: inline-block; position: relative" >
+                                                <span><span class="fa fa-star-o" id="three"></span></span><span style="
+                                                                                                            display: inline-block;
+                                                                                                            position: absolute;
+                                                                                                            overflow: hidden;
+                                                                                                            top: 0px;
+                                                                                                            left: 0px;
+                                                                                                            width: 0%;
+                                                                                                          "><span class="fa fa-star"></span></span>
+                                            </span><span style="cursor: pointer; display: inline-block; position: relative">
+                                                <span><span class="fa fa-star-o"  id="four"></span></span><span style="
+                                                                                                            display: inline-block;
+                                                                                                            position: absolute;
+                                                                                                            overflow: hidden;
+                                                                                                            top: 0px;
+                                                                                                            left: 0px;
+                                                                                                            width: 0%;
+                                                                                                          "><span class="fa fa-star"></span></span>
+                                            </span><span style="cursor: pointer; display: inline-block; position: relative" >
+                                                <span><span class="fa fa-star-o" id="five"></span></span><span style="
+                                                                                                            display: inline-block;
+                                                                                                            position: absolute;
+                                                                                                            overflow: hidden;
+                                                                                                            top: 0px;
+                                                                                                            left: 0px;
+                                                                                                            width: 0%;
+                                                                                                          "><span class="fa fa-star"></span></span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn text-uppercase button" id="btnSearch">Search</button>
+                            <p class=""></p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="right-side custom-big-width" style="min-height: 532px;" >
+                            <div class="top">
+                                <h2>Top Virtual Assistants</h2> 
+                            </div>
+                            @{
+                                foreach (Worker item in detailsWorker.Workers)
+                                {
+                                    var ntitle = item.Title.Replace(" ", "-").ToLower();
+                                    ntitle = ntitle.Replace("\"", "").ToLower();
+                                    ntitle = ntitle.Replace("'", "").ToLower();
+                                    ntitle = ntitle.Replace(".", "").ToLower();
+                                    ntitle = ntitle.Replace("/", "-").ToLower();
+                                    ntitle = ntitle.Replace("|", "-").ToLower();
+                                    ntitle = ntitle.Replace("&", "-").ToLower();
+                                    ntitle = ntitle.Replace("\\", "-").ToLower();
+                                    ntitle = ntitle.Replace("%", "").ToLower();
+                                    ntitle = ntitle.Replace("#", "").ToLower();
+                                    ntitle = ntitle.Replace("@", "").ToLower();
+                                    ntitle = ntitle.Replace(",", "-").ToLower();
+                                    ntitle = ntitle.Replace("*", "").ToLower();
+                                    ntitle = ntitle.Replace("=", "").ToLower();
+                                    ntitle = ntitle.Replace("?", "").ToLower();
+                                    ntitle = ntitle.Replace("$", "").ToLower();
+                                    ntitle = ntitle.Replace("+", "-").ToLower();
+
+                                    ntitle = ntitle.Replace("-----", "-").ToLower();
+                                    ntitle = ntitle.Replace("----", "-").ToLower();
+                                    ntitle = ntitle.Replace("---", "-").ToLower();
+                                    ntitle = ntitle.Replace("--", "-").ToLower();
+
+                                    var ncountryname = item.CountryName.Replace(" ", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\"", "").ToLower();
+                                    ncountryname = ncountryname.Replace("'", "-").ToLower();
+                                    ncountryname = ncountryname.Replace(".", "").ToLower();
+                                    ncountryname = ncountryname.Replace("/", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("|", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("&", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\\", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("%", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("#", "").ToLower();
+                                    ncountryname = ncountryname.Replace("@", "").ToLower();
+                                    ncountryname = ncountryname.Replace(",", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("*", "").ToLower();
+                                    ncountryname = ncountryname.Replace("=", "").ToLower();
+                                    ncountryname = ncountryname.Replace("?", "").ToLower();
+                                    ncountryname = ncountryname.Replace("$", "").ToLower();
+                                    ncountryname = ncountryname.Replace("+", "-").ToLower();
+
+                                    ncountryname = ncountryname.Replace("-----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("---", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("--", "-").ToLower();
+
+                                    var nname = item.Name.Replace(" ", "-").ToLower();
+                                    nname = nname.Replace("\"", "").ToLower();
+                                    nname = nname.Replace("'", "").ToLower();
+                                    nname = nname.Replace(".", "").ToLower();
+                                    nname = nname.Replace("|", "-").ToLower();
+                                    nname = nname.Replace("/", "-").ToLower();
+                                    nname = nname.Replace("&", "").ToLower();
+                                    nname = nname.Replace("\\", "-").ToLower();
+                                    nname = nname.Replace("%", "").ToLower();
+                                    nname = nname.Replace("#", "").ToLower();
+                                    nname = nname.Replace("@", "").ToLower();
+                                    nname = nname.Replace(",", "-").ToLower();
+                                    nname = nname.Replace("*", "").ToLower();
+                                    nname = nname.Replace("=", "").ToLower();
+                                    nname = nname.Replace("?", "").ToLower();
+                                    nname = nname.Replace("$", "").ToLower();
+                                    nname = nname.Replace("+", "-").ToLower();
+
+                                    nname = nname.Replace("-----", "-").ToLower();
+                                    nname = nname.Replace("----", "-").ToLower();
+                                    nname = nname.Replace("---", "-").ToLower();
+                                    nname = nname.Replace("--", "-").ToLower();
+
+                                    <div class="whole-div">
+                                        <div class="first mt-xl-0">
+                                            <a target="_blank"
+                                               href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@item.UserUniqueId">
+                                                <div class="img-div pointer">
+                                                    <img src="@item.ProfilePicturePath"
+                                                         alt="">
+                                                </div>
+                                            </a>
+                                            <div class="content">
+                                                <a target="_blank"
+                                                   href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@item.UserUniqueId">
+                                                    <div class="name-star-wrapper">
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <h4 class="pointer text-left">@item.Name</h4>
+                                                        </div>
+                                                        <div class="badge-rating-wrapper">
+                                                            <div class="wrapper-rating">
+                                                                <span class="number-rating">@Math.Round(item.Rating, 1).ToString("0.0")</span>
+                                                                <div class="star-rating">
+                                                                    <span style="display: inline-block; direction: ltr;">
+                                                                        <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span><span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                            <span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                                <span class="fa fa-star"></span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <p style="color: black;">@item.Title</p>
+                                                <p>
+                                                    @foreach (Skill newItem in item.Skills)
+                                                    {
+
+                                                        if (newItem.Name == item.Skills.LastOrDefault().Name)
+                                                        {
+                                                            @newItem.Name
+                                                        }
+                                                        else
+                                                        {
+                                                            @(newItem.Name + ", ")
+
+                                                        }
+                                                    }
+                                                    <div style="color: black; margin-top: 10px; margin-bottom: 10px;">
+                                                        @{
+                                                            if (string.IsNullOrEmpty(item.Experience) && string.IsNullOrEmpty(item.Education))
+                                                            {
+                                                                @item.CountryName
+                                                            }
+                                                            else if (string.IsNullOrEmpty(item.Education))
+                                                            {
+                                                                @(item.CountryName + " | Experience " + item.Experience)
+                                                            }
+                                                            else if (string.IsNullOrEmpty(item.Experience))
+                                                            {
+                                                                @(item.CountryName + " | " + item.Education)
+                                                            }
+                                                            else
+                                                            {
+                                                                @(item.CountryName + " | " + item.Education + " | Experience " + item.Experience)
+                                                            }
+                                                        }
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="second">
+                                            @{
+                                                if (!string.IsNullOrEmpty(item.Salary))
+                                                {
+                                                    <h4>
+                                                        @("$" + item.Salary + " / month")
+                                                    </h4>
+                                                }
+                                            }
+                                            @{
+                                                if (!string.IsNullOrEmpty(item.Availability) && item.Availability != "0")
+                                                {
+                                                    <p>  @item.Availability </p>
+                                                }
+                                            }
+                                            <p>
+                                                Last logged:<br />
+                                                <time>
+                                                    @{
+                                                        var dayDiff = DateTime.Now.Subtract(@item.LastLoginDate).TotalDays;
+                                                        if (dayDiff < 1)
+                                                        {
+                                                            @(Math.Round(dayDiff * 24, 0) + " hours")
+                                                        }
+                                                        else if (dayDiff >= 1 && dayDiff <= 30)
+                                                        {
+                                                            @(Math.Round(dayDiff, 0) + " days")
+                                                        }
+                                                        else if (dayDiff >= 31 && dayDiff <= 365)
+                                                        {
+                                                            @(Math.Round(dayDiff / 30, 0) + " months")
+                                                        }
+                                                        else
+                                                        {
+                                                            @(Math.Round(dayDiff / 365, 0) + " years")
+                                                        }
+                                                    }
+                                                </time> ago
+                                            </p>
+                                            <a target="_blank"
+                                               href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@item.UserUniqueId"><button class="btn view-btn text-uppercase" id="btn-view">View</button></a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="right-side custom-small-width" style="min-height: 532px;">
+                            <div class="top">
+                                <h2>Top Virtual Assistants</h2>
+                            </div>
+                            @{
+                                foreach (Worker item in detailsWorker.Workers)
+                                {
+                                    var ntitle = item.Title.Replace(" ", "-").ToLower();
+                                    ntitle = ntitle.Replace("\"", "").ToLower();
+                                    ntitle = ntitle.Replace("'", "").ToLower();
+                                    ntitle = ntitle.Replace(".", "").ToLower();
+                                    ntitle = ntitle.Replace("/", "-").ToLower();
+                                    ntitle = ntitle.Replace("|", "-").ToLower();
+                                    ntitle = ntitle.Replace("&", "-").ToLower();
+                                    ntitle = ntitle.Replace("\\", "-").ToLower();
+                                    ntitle = ntitle.Replace("%", "").ToLower();
+                                    ntitle = ntitle.Replace("#", "").ToLower();
+                                    ntitle = ntitle.Replace("@", "").ToLower();
+                                    ntitle = ntitle.Replace(",", "-").ToLower();
+                                    ntitle = ntitle.Replace("*", "").ToLower();
+                                    ntitle = ntitle.Replace("=", "").ToLower();
+                                    ntitle = ntitle.Replace("?", "").ToLower();
+                                    ntitle = ntitle.Replace("$", "").ToLower();
+                                    ntitle = ntitle.Replace("+", "-").ToLower();
+
+
+                                    ntitle = ntitle.Replace("-----", "-").ToLower();
+                                    ntitle = ntitle.Replace("----", "-").ToLower();
+                                    ntitle = ntitle.Replace("---", "-").ToLower();
+                                    ntitle = ntitle.Replace("--", "-").ToLower();
+
+                                    var ncountryname = item.CountryName.Replace(" ", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\"", "").ToLower();
+                                    ncountryname = ncountryname.Replace("'", "-").ToLower();
+                                    ncountryname = ncountryname.Replace(".", "").ToLower();
+                                    ncountryname = ncountryname.Replace("/", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("|", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("&", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("\\", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("%", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("#", "").ToLower();
+                                    ncountryname = ncountryname.Replace("@", "").ToLower();
+                                    ncountryname = ncountryname.Replace(",", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("*", "").ToLower();
+                                    ncountryname = ncountryname.Replace("=", "").ToLower();
+                                    ncountryname = ncountryname.Replace("?", "").ToLower();
+                                    ncountryname = ncountryname.Replace("$", "").ToLower();
+                                    ncountryname = ncountryname.Replace("+", "-").ToLower();
+
+                                    ncountryname = ncountryname.Replace("-----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("----", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("---", "-").ToLower();
+                                    ncountryname = ncountryname.Replace("--", "-").ToLower();
+
+
+                                    var nname = item.Name.Replace(" ", "-").ToLower();
+                                    nname = nname.Replace("\"", "").ToLower();
+                                    nname = nname.Replace("'", "").ToLower();
+                                    nname = nname.Replace(".", "").ToLower();
+                                    nname = nname.Replace("|", "-").ToLower();
+                                    nname = nname.Replace("/", "-").ToLower();
+                                    nname = nname.Replace("&", "").ToLower();
+                                    nname = nname.Replace("\\", "-").ToLower();
+                                    nname = nname.Replace("%", "").ToLower();
+                                    nname = nname.Replace("#", "").ToLower();
+                                    nname = nname.Replace("@", "").ToLower();
+                                    nname = nname.Replace(",", "-").ToLower();
+                                    nname = nname.Replace("*", "").ToLower();
+                                    nname = nname.Replace("=", "").ToLower();
+                                    nname = nname.Replace("?", "").ToLower();
+                                    nname = nname.Replace("$", "").ToLower();
+                                    nname = nname.Replace("+", "-").ToLower();
+
+                                    nname = nname.Replace("-----", "-").ToLower();
+                                    nname = nname.Replace("----", "-").ToLower();
+                                    nname = nname.Replace("---", "-").ToLower();
+                                    nname = nname.Replace("--", "-").ToLower();
+
+
+                                    <div class="whole-div-new">
+                                        <div class="first-new">
+                                            <a target="_blank" href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@item.UserUniqueId">
+                                                <div class="ava-div-new">
+                                                    <img src="@item.ProfilePicturePath" alt="">
+                                                </div>
+                                            </a>
+                                            <div class="content-new">
+                                                <div class="content-name">
+                                                    <a target="_blank"
+                                                       href="/hire-virtual-assistant/@ntitle/@ncountryname/@nname/@item.UserUniqueId">
+                                                        <h4 class="pointer text-left">@item.Name</h4>
+                                                    </a>
+                                                    <div class="wrapper-rating">
+                                                        <span class="number-rating">
+                                                            @item.Rating.ToString("0.0")
+                                                        </span>
+                                                        <div class="star-rating">
+                                                            <span style="display: inline-block; direction: ltr;">
+                                                                <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                    <span style="visibility: hidden;">
+                                                                        <span class="fa fa-star-o">
+                                                                        </span>
+                                                                    </span>
+                                                                    <span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                        <span class="fa fa-star">
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                                <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                    <span style="visibility: hidden;">
+                                                                        <span class="fa fa-star-o"></span>
+                                                                    </span>
+                                                                    <span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;">
+                                                                        <span class="fa fa-star"></span>
+                                                                    </span>
+                                                                </span>
+                                                                <span style="cursor: inherit; display: inline-block; position: relative;">
+                                                                    <span style="visibility: hidden;">
+                                                                        <span class="fa fa-star-o">
+                                                                        </span>
+                                                                    </span>
+                                                                    <span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;"><span class="fa fa-star"></span></span>
+                                                                </span><span style="cursor: inherit; display: inline-block; position: relative;"><span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;"><span class="fa fa-star"></span></span></span><span style="cursor: inherit; display: inline-block; position: relative;"><span style="visibility: hidden;"><span class="fa fa-star-o"></span></span><span style="display: inline-block; position: absolute; overflow: hidden; top: 0px; left: 0px; width: 100%;"><span class="fa fa-star"></span></span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="pointer " style="color: black;">@item.Title</p>
+                                                </div>
+                                                <div class="salary-new">
+                                                    @{
+                                                        if (!string.IsNullOrEmpty(item.Salary))
+                                                        {
+                                                            <h4>
+                                                                @("$" + item.Salary + " / month")
+                                                            </h4>
+                                                        }
+                                                    }
+                                                    @{
+                                                        if (!string.IsNullOrEmpty(item.Availability) && item.Availability != "0")
+                                                        {
+                                                            <p style="margin-bottom: 0px;">
+                                                                @item.Availability
+                                                            </p>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="second-new">
+                                            <p>
+                                                @foreach (Skill newItem in item.Skills)
+                                                {
+
+                                                    if (newItem.Name == item.Skills.LastOrDefault().Name)
+                                                    {
+                                                        @newItem.Name
+                                                    }
+                                                    else
+                                                    {
+                                                        @(newItem.Name + ", ")
+
+                                                    }
+                                                }
+                                                <div style="color: black; margin-top: 10px; margin-bottom: 10px;">
+                                                    @{
+                                                        if (string.IsNullOrEmpty(item.Experience) && string.IsNullOrEmpty(item.Education))
+                                                        {
+                                                            @item.CountryName
+                                                        }
+                                                        else if (string.IsNullOrEmpty(item.Education))
+                                                        {
+                                                            @(item.CountryName + " | Experience " + item.Experience)
+                                                        }
+                                                        else if (string.IsNullOrEmpty(item.Experience))
+                                                        {
+                                                            @(item.CountryName + " | " + item.Education)
+                                                        }
+                                                        else
+                                                        {
+                                                            @(item.CountryName + " | " + item.Education + " | Experience " + item.Experience)
+                                                        }
+                                                    }
+                                                </div>
+                                            </p>
+                                        </div>
+                                        <div class="last-new">
+                                            <p class="text-left">
+                                                Last logged:&nbsp;<time>
+                                                    @{
+                                                        var dayDiff = DateTime.Now.Subtract(@item.LastLoginDate).TotalDays;
+                                                        if (dayDiff < 1)
+                                                        {
+                                                            @(Math.Round(dayDiff * 24, 0) + " hours")
+                                                        }
+                                                        else if (dayDiff >= 1 && dayDiff <= 30)
+                                                        {
+                                                            @(Math.Round(dayDiff, 0) + " days")
+                                                        }
+                                                        else if (dayDiff >= 31 && dayDiff <= 365)
+                                                        {
+                                                            @(Math.Round(dayDiff / 30, 0) + " months")
+                                                        }
+                                                        else
+                                                        {
+                                                            @(Math.Round(dayDiff / 365, 0) + " years")
+                                                        }
+                                                    }
+                                                </time> ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <ul class="paginations">
+                            
+                            @{
+                                if (!TempData.ContainsKey("search")){
+                                
+                                if (int.Parse(PageIndex) == 1)
+                                {
+                                    <li class="disabled"><a title="First" class="text-uppercase clickable">First</a></li>
+                                    <li class="disabled"><a title="Previous" class="text-uppercase clickable">Prev</a></li>
+                                }
+                                else
+                                {
+                                    <li><a title="First" class="text-uppercase clickable" href=@(currentUrl+ "?page=1")>First</a></li>
+                                    <li>
+                                        <a title="Previous" class="text-uppercase clickable" href=@(currentUrl+ "?page=" + (intPage - 1))>Prev</a>
+                                    </li>
+                                }                      
+                            
+                                if (int.Parse(PageIndex) <= 6)
+                                {
+                                    for (int i = 1; i <= 10; i++)
+                                    {
+                                        if (int.Parse(PageIndex) == i)
+                                        {
+                                            <li class="active"
+                                                name = "@i">
+                                                <a class="text-uppercase clickable"
+                                                   href = @(currentUrl+ "?page=" + @i)>@i</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li name = "@i">
+                                                <a class = "text-uppercase clickable"
+                                                   href = @(currentUrl+ "?page=" + @i)>@i</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                                else if (int.Parse(PageIndex) >= lastPage)
+                                {
+                                    for (int i = lastPage - 4; i <= lengPage; i++)
+                                    {
+                                        if (int.Parse(PageIndex) == i)
+                                        {
+                                            <li class="active"
+                                                name="@i">
+                                                <a class="text-uppercase clickable"
+                                                   href=@(currentUrl+ "?page=" + @i)>@i</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li name="@i">
+                                                <a class="text-uppercase clickable"
+                                                   href=@(currentUrl+ "?page=" + @i)>@i</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (int i = int.Parse(PageIndex) - 5; i <= int.Parse(PageIndex) + 4; i++)
+                                    {
+                                        if (int.Parse(PageIndex) == i)
+                                        {
+                                            <li class="active"
+                                                name="@i">
+                                                <a class="text-uppercase clickable"
+                                                   href=@(currentUrl+ "?page=" + @i)>@i</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li name="@i">
+                                                <a class="text-uppercase clickable"
+                                                   href=@(currentUrl+ "?page=" + @i)>@i</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                          
+                                if (int.Parse(PageIndex) == lengPage)
+                                {
+                                    <li class="disabled"><a title="Next" class="text-uppercase clickable">Next</a></li>
+                                    <li class="disabled"><a title="Last" class="text-uppercase clickable">Last</a></li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a title="Next" class="text-uppercase clickable"
+                                           href=@(currentUrl+ "?page=" + (intPage + 1))>Next</a>
+                                    </li>
+                                    <li>
+                                        <a title="Last" class="text-uppercase clickable"
+                                           href=@(currentUrl+ "?page=" + lengPage)>Last</a>
+                                    </li>
+                                }
+                              }
+                              else{
+                                if (int.Parse(PageIndex) == 1)
+                                {
+                                    <li class="disabled"><a title="First" class="text-uppercase clickable">First</a></li>
+                                    <li class="disabled"><a title="Previous" class="text-uppercase clickable">Prev</a></li>
+                                }
+                                else
+                                {
+                                    <li><a title="First" class="text-uppercase clickable" onclick="callAPI(1)" >First</a></li>
+                                    <li>
+                                        <a title="Previous" class="text-uppercase clickable" onclick="callAPI(@(intPage - 1))">Prev</a>
+                                    </li>
+                                }
+                                                    
+                                if (int.Parse(PageIndex) <= 6)
+                                {
+                                    for (int i = 1; i <= 10; i++)
+                                    {
+                                        if (int.Parse(PageIndex) == i)
+                                        {
+                                            <li class="active"
+                                                name = "@i">
+                                                <a class="text-uppercase clickable" onclick="callAPI(@i)">@i</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li name = "@i">
+                                                <a class = "text-uppercase clickable" onclick="callAPI(@i)" >@i</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                                else if (int.Parse(PageIndex) >= lastPage)
+                                {
+                                    for (int i = lastPage - 4; i <= lengPage; i++)
+                                    {
+                                        if (int.Parse(PageIndex) == i)
+                                        {
+                                            <li class="active"
+                                                name="@i">
+                                                <a class="text-uppercase clickable" onclick="callAPI(@i)">@i</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li name="@i">
+                                                <a class="text-uppercase clickable" onclick="callAPI(@i)">@i</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (int i = int.Parse(PageIndex) - 5; i <= int.Parse(PageIndex) + 4; i++)
+                                    {
+                                        if (int.Parse(PageIndex) == i)
+                                        {
+                                            <li class="active"
+                                                name="@i">
+                                                <a class="text-uppercase clickable" onclick="callAPI(@i)">@i</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li name="@i">
+                                                <a class="text-uppercase clickable" onclick="callAPI(@i)">@i</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            
+                                if (int.Parse(PageIndex) == lengPage)
+                                {
+                                    <li class="disabled"><a title="Next" class="text-uppercase clickable">Next</a></li>
+                                    <li class="disabled"><a title="Last" class="text-uppercase clickable">Last</a></li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a title="Next" class="text-uppercase clickable" onclick="callAPI(@(intPage + 1))">Next</a>
+                                    </li>
+                                    <li>
+                                        <a title="Last" class="text-uppercase clickable"
+                                           onclick="callAPI(@lengPage)">Last</a>
+                                    </li>
+                                }
+                              }                              
+                            }
+                        </ul>
+                        <a href="/register">
+                            <div class="image-banner-wrapper desktop-jff-banner custom-big-width">
+                                <img src="~/images/b81bdb2aaaf79edc630a4529e987ed3a.webp"
+                                     alt="Join For Free Banner">
+                            </div>
+                            <div class="image-banner-wrapper desktop-jff-banner custom-small-width">
+                                <img src="~/images/banner-bottom-small.webp"
+                                     alt="Join For Free Banner">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div style="background-color:#fff">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            @Html.Raw(detailsWorker.seotext)
+
+                            <h1 class="mt-4" style="text-align: center;">Why Do I Need A Virtual Assistant</h1>
+                            <p style="text-align: center;">We call them virtual assistant because they work from home</p>
+                            <center><div id="div_YouTube"></div></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("Footer")
+</div>
+
+
+<footer>
+    
+    <script async src="https://www.youtube.com/iframe_api"></script>
+
+    @{
+        var temp = "";
+        if (detailsWorker.video != null)
+        {
+            temp = detailsWorker.video.Split('=')[1];
+        }
+    }
+    <script>
+
+        localStorage.setItem("rating", "0")
+        localStorage.setItem("newCall", "false")
+
+        function onYouTubeIframeAPIReady() {
+        var player;
+        var result;
+
+        player = new YT.Player('div_YouTube', {
+            videoId: '@temp',     // THE VIDEO ID.
+            width: 560,
+            height: 316,
+            playerVars: {
+                'controls': 1,
+                'showinfo': 0,
+                'modestbranding': 0,
+                'loop': 1,
+                'fs': 0,
+                'cc_load_policty': 0,
+                'iv_load_policy': 3
+            },
+            events: {
+                'onReady': function (e) {
+                    e.target.mute();
+                    e.target.setVolume(50);      // YOU CAN SET VALUE TO 100 FOR MAX VOLUME.
+                }
+            }
+        });
+    }
+        $(window).resize(function () {
+            var width = $(document).width();
+
+            if (width <= 479) {
+                $(".custom-small-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-show");
+                $(".custom-big-width").addClass("d-none");
+            } else {
+                $(".custom-big-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-none");
+                $(".custom-big-width").addClass("d-show");
+            }
+        });
+      
+
+        $(document).ready(function () {
+
+            $("#one").click(function(){
+                $("#rating").text("1")
+                localStorage.setItem("rating", "1")
+
+                $(this).removeClass("fa-star-o")
+                $(this).addClass("fa-star")
+
+                $("#two").removeClass("fa-star")
+                $("#three").removeClass("fa-star")
+                $("#four").removeClass("fa-star")
+                $("#five").removeClass("fa-star")
+
+                $("#two").addClass("fa-star-o")
+                $("#three").addClass("fa-star-o")
+                $("#four").addClass("fa-star-o")
+                $("#five").addClass("fa-star-o")
+            })
+
+            $("#two").click(function(){
+                $("#rating").text("2")
+                localStorage.setItem("rating", "2")
+
+                $("#one").removeClass("fa-star-o")
+                $("#one").addClass("fa-star")
+                $("#two").removeClass("fa-star-o")
+                $("#two").addClass("fa-star")
+
+                $("#three").removeClass("fa-star")
+                $("#four").removeClass("fa-star")
+                $("#five").removeClass("fa-star")
+
+                $("#three").addClass("fa-star-o")
+                $("#four").addClass("fa-star-o")
+                $("#five").addClass("fa-star-o")
+            })
+
+            $("#three").click(function(){
+                $("#rating").text("3") 
+                localStorage.setItem("rating", "3")   
+
+                $("#one").removeClass("fa-star-o")
+                $("#one").addClass("fa-star")
+                $("#two").removeClass("fa-star-o")
+                $("#two").addClass("fa-star")           
+                $("#three").removeClass("fa-star-o")
+                $("#three").addClass("fa-star")    
+
+                $("#four").removeClass("fa-star")
+                $("#five").removeClass("fa-star")
+
+                $("#four").addClass("fa-star-o")
+                $("#five").addClass("fa-star-o")       
+            })
+
+            $("#four").click(function(){
+                $("#rating").text("4")
+                localStorage.setItem("rating", "4")
+
+                $("#one").removeClass("fa-star-o")
+                $("#one").addClass("fa-star")
+                $("#two").removeClass("fa-star-o")
+                $("#two").addClass("fa-star")
+                $("#three").removeClass("fa-star-o")
+                $("#three").addClass("fa-star")
+                $("#four").removeClass("fa-star-o")
+                $("#four").addClass("fa-star")
+
+                $("#five").removeClass("fa-star")
+                $("#five").addClass("fa-star-o")
+            })
+
+            $("#five").click(function(){
+                $("#rating").text("5")
+                localStorage.setItem("rating", "5")
+
+                $("#one").removeClass("fa-star-o")
+                $("#one").addClass("fa-star")
+                $("#two").removeClass("fa-star-o")
+                $("#two").addClass("fa-star")
+                $("#three").removeClass("fa-star-o")
+                $("#three").addClass("fa-star")
+                $("#four").removeClass("fa-star-o")
+                $("#four").addClass("fa-star")
+                $("#five").removeClass("fa-star-o")
+                $("#five").addClass("fa-star")
+            })
+
+            var width = $(document).width();
+            if (width <= 479) {
+                $(".custom-small-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-show");
+                $(".custom-big-width").addClass("d-none");
+            } else {
+                $(".custom-big-width").removeClass("d-none");
+                $(".custom-small-width").addClass("d-none");
+                $(".custom-big-width").addClass("d-show");
+            }
+            $("#menuToggle").click(function () {
+                if ($("#menu").hasClass("d-none")) {
+                    $("#menu").removeClass("d-none");
+                } else {
+                    $("#menu").addClass("d-none");
+                };
+            });
+
+            $("#btnSearch").click(function (){
+                localStorage.setItem("newCall", "true")
+                callAPI(1)
+                
+            })
+        });
+    </script>
+
+    <script>
+
+        function callAPI(page){
+                var Keyword, SkillIds, WorkerTypeId, Education, Experience, min_max_salary, minsalary, maxsalary;
+
+                if(localStorage.getItem("newCall") == "true")
+                {
+                    
+                    Keyword = $("#keyword").val()
+                    SkillIds =  $("#skillsChosen").val()
+                    WorkerTypeId = $("#jobType").val()
+                    Education = $("#education").val()
+                    Experience = $("#experience").val()
+
+                    min_max_salary = document.getElementById("event-receiver").value
+                    min_max_salary = min_max_salary.split(",")
+                    minsalary = min_max_salary[0].trim()
+                    maxsalary = min_max_salary[1].trim()
+
+                    localStorage.setItem("Keyword", Keyword)
+                    localStorage.setItem("SkillIds", SkillIds)
+                    localStorage.setItem("WorkerTypeId", WorkerTypeId)
+                    localStorage.setItem("Education", Education)
+                    localStorage.setItem("Experience", Experience)
+                    localStorage.setItem("minsalary", minsalary)
+                    localStorage.setItem("maxsalary", maxsalary)
+                    
+                }
+                else
+                {
+                    Keyword = localStorage.getItem("Keyword")
+                    SkillIds = localStorage.getItem("SkillIds")
+                    WorkerTypeId = localStorage.getItem("WorkerTypeId") 
+                    Education = localStorage.getItem("Education") 
+                    Experience = localStorage.getItem("Experience")
+                    minsalary = localStorage.getItem("minsalary")
+                    maxsalary = localStorage.getItem("maxsalary")
+                }
+
+                localStorage.setItem("newCall", "false")
+                
+                
+                //if(Keyword == "" || SkillIds == "" || WorkerTypeId == "" || Education == "" || Experience == "")
+                //{
+                //    alert("Please fill out all fields!")
+                //    return
+                //}
+
+                var url = "https://apiv1.evirtualassistants.com/client/search-workers?Keyword=" + Keyword + "&WorkerTypeId=" + WorkerTypeId + "&MinSalary=" + minsalary + "&MaxSalary=" + maxsalary + "&SkillIds=" + SkillIds + "&Education=" + Education + "&Experience=" + Experience + "&MinRating=" + localStorage.getItem("rating") + "&page=" + page
+            
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success : function(result){
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("Search", "Home")',
+                            data: {
+                                sendingString : JSON.stringify(result),
+                                page: page.toString()
+                            },
+                            success:function(result){
+                                if(result){
+                                    window.location.reload()
+                                }  
+                            }
+                        })                    
+                    }
+                })
+        }
+
+        function removeSkill(id) {
+            tmp = $("#skillsChosen").val();
+
+            if (tmp.includes(',' + id + ',')) tmp=tmp.replace(',' + id + ',', ',');
+            if (tmp.includes(',' + id)) tmp =tmp.replace(',' + id, '');
+            if (tmp.includes(id + ',')) tmp = tmp.replace(id + ',', '');
+            if (tmp==id) tmp = "";
+
+            $("#skillsChosen").val(tmp);
+            $('#skill-' + id).hide();
+        }
+
+        var skills = @Html.Raw(ViewBag.Skills);
+        skillsAuto = [];
+
+        for (i = 0; i < skills.length; i++) {
+            skillsAuto.push(skills[i].name);
+        }
+
+            $("#skills").autocomplete({
+                minLength: 3,
+                source: skillsAuto,
+                select: function (event, ui) {
+                    $.each(skills, function (i, v) {
+                        if (v.name == ui.item.value) {
+                            tmp = $("#skillsChosen").val();
+                            if (!tmp.includes(v.id)) {
+                                if (tmp == "") {
+                                    tmp = v.id;
+                                } else {
+                                    tmp += ',' + v.id
+                                }
+                                alert(tmp)
+                               
+                                $("#skillsChosen").val(tmp);
+                                //selected = $("#tags__selected").val();
+                                selected = '<button type="button" id="skill-' + v.id +'" class="react-tags__selected-tag" onclick="removeSkill(' + v.id+')"><span class="react-tags__selected-tag-name">' + v.name+'</span></button>';
+                                $("#tags__selected").append(selected);
+                                $("#skills").val("");
+                            }
+                            return;
+                        }
+                    });
+                    return false;
+                }
+            })
+        
+        $("#skills").autocomplete({
+                minLength: 3,
+                source: skillsAuto,
+                select: function (event, ui) {
+                    $.each(skills, function (i, v) {
+                        if (v.name == ui.item.value) {
+                            tmp = $("#skillsChosen").val();
+                            if (!tmp.includes(v.id)) {
+                                if (tmp == "") {
+                                    tmp = v.id;
+                                } else {
+                                    tmp += ',' + v.id
+                                }
+                                $("#skillsChosen").val(tmp);
+                                //selected = $("#tags__selected").val();
+                                selected = '<button type="button" id="skill-' + v.id +'" class="react-tags__selected-tag" onclick="removeSkill(' + v.id+')"><span class="react-tags__selected-tag-name">' + v.name+'</span></button>';
+                                $("#tags__selected").append(selected);
+                                $("#skills").val("");
+                            }
+                            return;
+                        }
+                    });
+                    return false;
+                }
+            })
+    </script>
+</footer>

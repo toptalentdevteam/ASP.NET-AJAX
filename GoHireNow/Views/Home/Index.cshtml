@@ -1,0 +1,489 @@
+﻿<noscript>You need to enable JavaScript to run this app.</noscript>
+<div>
+    <div class="overallsectionsdiv">
+        <div class="overallsectionsdiv">
+            @await Html.PartialAsync("Header")
+        </div>
+        <div>
+            <div class="hire-want-section new-home2">
+                <div class="container">
+                    <div class="row align-items-center head-row">
+                        <div class="col-6 hire-page-header-inner" style="padding-left: 0px; padding-right: 0px;">
+                            <div class="largetext1 new-text-h1">
+                                <h1 class="hire-page-header-text">Hire A Virtual Assistant In Philippines</h1>
+                                <div class="hire-work-buttons  ">
+                                    <a href="/register" class="btn text-uppercase new-search-btn ">
+                                        Get Started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 pr-0">
+                            <div class="voted-div-outer">
+                                <div class="voted-div"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="as-seen-as" style="background-color: rgb(51, 51, 51);">
+                <div class="container-fluid d-flex justify-content-center">
+                    <div class="row  black-back-header black-back" style="width: 88%; padding: 25px 49px;">
+                        <!--<h2 class="text-uppercase new-style-needed">as seen on</h2>-->
+                        <div class="black-circle-adj">
+                            <div>
+                                <img src="~/images/43f9f5b331e3275d6056844efc0ac302.webp"
+                                     alt="">
+                            </div>
+                            <div>
+                                <img class="bottom-fixed"
+                                     src="~/images/8000f134dad90b9b6be7d9376a1d63e0.webp"
+                                     alt="">
+                            </div>
+                            <div>
+                                <img src="~/images/c4eae76eb14a3e8e2065a014adc7bd14.webp"
+                                     alt="">
+                            </div>
+                            <div>
+                                <img src="~/images/dd727d0fabc80783c74e3de062b1471e.webp"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container " style="margin-top: 0px;">
+                <div class="row align-pad " style="padding: 0% 15px 0% 15px;">
+                    <div class="col-md-12 pl-0">
+                        <h2 class="text-center text-uppercase mb-0"
+                            style="padding: 4% 0px 3% 15px; font-weight: 700; font-size: 28px; font-family: lato;">
+                            Browse our Virtual Assistants by skills!
+                        </h2>
+                        <h3 class="mb-0 text-center"
+                            style="padding: 0% 0px 4% 15px; font-size: 22px; font-weight: 500; line-height: 1.3;">
+                            Hire top virtual assistants for your next project or startup<br>We have 200,000+ assistants from the Philippines
+                        </h3>
+                    </div>
+                    <div class="job-post d-flex align-items-center justify-content-end p-0" style="margin: 0px auto; ">
+                        <a href="/hire-virtual-assistant/virtual-assistants/all" class="btn text-uppercase">View all virtual assistants</a>
+                    </div>
+                </div>
+                <div class="row respsonsive-of-listing mt-4 hirepage-container">
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                List<JobTitleModel> jobTitleModels = ViewBag.JobTitleModel;
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 9)
+                                    {
+                                        <img src="~/images/2cafb33bd9318dcfb7311112c73d09c0.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 10)
+                                    {
+                                        <img src="~/images/a07efd0721b10de804a95eee68754f12.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 11)
+                                    {
+                                        <img src="~/images/ecfa1d20ad58fe3147f0a446878eb34f.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 6)
+                                    {
+                                        <img src="~/images/00ef73dd84588a003f03f54e9a4cd40e.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 14)
+                                    {
+                                        <img src="~/images/44e2bad3cd3c8b07fd652b1e8e08fd95.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 5)
+                                    {
+                                        <img src="~/images/3be412d75d95a61354c51c300b75f1d8.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 1)
+                                    {
+                                        <img src="~/images/f1bb21ee7bdfdede55884ee0396f2c85.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 2)
+                                    {
+                                        <img src="~/images/f5a0b517a0a655a742db286d2f65a067.png"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 7)
+                                    {
+                                        <img src="~/images/26f9a9a474784c8ac274dddec8e685c0.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 3)
+                                    {
+                                        <img src="~/images/f503b68a6c9df33353846407bad0b16e.png"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 4)
+                                    {
+                                        <img src="~/images/c1763d332cbf3f61570fee47b2c0c649.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 8)
+                                    {
+                                        <img src="~/images/9fcdbfa775b8d93c46b053b7be6931a1.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="w-25 col-3 pb-2 pt-2 pr-2 pl-2 d-flex  hirepage-job flex-column
+ respsonsive-of-listing-new">
+                        <div class=" d-flex   p-4 flex-column "
+                             style="font-size: 17px; background-color: rgb(243, 243, 243); height: 1180px; align-items: center;">
+                            @{
+                                foreach (JobTitleModel item in jobTitleModels)
+                                {
+                                    if (@item.id == 12)
+                                    {
+                                        <img src="~/images/636870c6ea9159f27a5491693c292e43.webp"
+                                             alt="" style="margin-top: 24px; margin-bottom: 25px; width: 120px; height: 120px;"><a class="mt-2 mb-2 text-center"
+                                                                                                                                   style="font-size: 18px; font-weight: 700; height: 65px; min-height: 65px; max-height: 65px; display: flex; justify-content: center; align-items: center;">
+                                            @item.name
+                                        </a>
+                                        foreach (jobTitlesDetails newItem in item.jobTitles)
+                                        {
+                                            <a class="text-center mt-2 mb-2"
+                                               href="/hire-virtual-assistant/@newItem.friendlyUrl/@newItem.id"
+                                               style="color: rgb(65, 143, 205);">
+                                                @newItem.name
+                                            </a>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container px-5 mt-3 mt-sm-0 px-sm-3">
+            <h2>Why hiring a virtual assistant from the philippines?</h2><br />
+            <p>
+                A virtual assistant can do so many things for you, we call them virtual assistant because they work from home. Hiring a virtual assistant will make you save time and money, from social media management to <a href="/p/real-estate-virtual-assistant-philippines.html">real estate virtual assistants</a> do I have many skills. In fact we have over 2,000 different skills in our site. Within minutes, you can post your job on our Marketplace. Our platform has the best tools to help you securely hire, manage, and pay your staff. The best part. It's completely free!<br />
+                <br />
+                The Philippines is im the top countries with a workforce that is capable of providing world-class service. Many businesses, hire in the Philippines. The quality of work that Filipino virtual assistant offer is on par with that from highly industrialized nations like the United States.
+                <br /><br />
+                <b>THEY SPEAK ENGLIS</b>H<br />
+                The Philippines is recognized globally as one of the largest fluent English-speaking nations. Degrees are taught in English. Most of our virtual assistants do I have a degree and work experience. They are fluent in writing and speaking.
+                <br /><br />
+                <b>THEY WORK FROM HOME</b><br />
+                All virtual assistants have their own computer, a good internet connection and all licenses needed for work. You will save on office space, furniture and computers. It is really important that you have a great task management system in place.s
+                <br /><br />
+                <b>USE OUR HIRING SERVICES</b><br />
+                Our <a href="/p/virtual-assistant-recruiting-service.html">recruiting service</a> is the best way to find your next great virtual assistant. We will take care of hiring the best candidates available on the marketplace. You will save time and money as our team is really experienced in hiring Virtual Assistants.
+                We will hire for you the top virtual assistant, we take care of paying salaries and all overseas taxes, you only have to manage your assistant.
+                If you don't like your assistant, we will find you a better one without any fees. Get your time can grow your business!<br />
+                
+
+            </p>
+        </div>
+        @await Html.PartialAsync("Footer")
+    </div>
+</div>
+
+<footer>
+    <script>
+    $(window).resize(function () {
+        var width = $(document).width();
+        if (width <= 479) {
+            $(".custom-small-width").removeClass("d-none");
+            $(".custom-small-width").addClass("d-show");
+            $(".custom-big-width").addClass("d-none");
+        } else {
+            $(".custom-big-width").removeClass("d-none");
+            $(".custom-small-width").addClass("d-none");
+            $(".custom-big-width").addClass("d-show");
+        }
+    });
+    $(document).ready(function () {
+        var width = $(document).width();
+        if (width <= 479) {
+            $(".custom-small-width").removeClass("d-none");
+            $(".custom-small-width").addClass("d-show");
+            $(".custom-big-width").addClass("d-none");
+        } else {
+            $(".custom-big-width").removeClass("d-none");
+            $(".custom-small-width").addClass("d-none");
+            $(".custom-big-width").addClass("d-show");
+        }
+        $("#menuToggle").click(function () {
+            if ($("#menu").hasClass("d-none")) {
+                $("#menu").removeClass("d-none");
+            } else {
+                $("#menu").addClass("d-none");
+            };
+        });
+    });
+</script>
+    <script type="text/javascript"
+        src="~/js/vendors_main.e8ed1db5d1272f5129c5.js"></script>
+</footer>
+

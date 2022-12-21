@@ -1,0 +1,182 @@
+﻿.new-text-h1 h1 {
+    font-size: 32px !important;
+    margin-top: 0px !important;
+}
+
+.va-mobile-card {
+    display: none !important;
+}
+
+.hire-want-section.new-home2 > .container,
+.hire-want-section.new-home2 > .container > .row,
+.head-row {
+    height: inherit;
+}
+
+.left-side-inner-others {
+    border-right: 0px !important;
+    border-left: 0px !important;
+}
+
+@media (min-width: 992px) {
+    .wrapper-rating .number-rating {
+        margin-right: 3px;
+    }
+
+    .va-desktop-card .left-side-inner-others .col-8 {
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .right-side-top {
+        margin-left: 0px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #div_YouTube {
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    #div_YouTube {
+        width: 380px;
+    }
+
+    .job-post:not(.mobile-header) button,
+    .job-post:not(.mobile-header) .btn {
+        font-size: 1.25rem !important;
+    }
+
+    .footer-link-header {
+        padding-bottom: 0 !important;
+        margin-top: 1rem;
+    }
+
+    .footer-main-wrapper {
+        padding-top: 50px !important;
+    }
+
+    .logo img {
+        width: 165px !important;
+    }
+
+    .mobile-menu .job-post button {
+        padding: 6px 16px;
+    }
+
+    .new-text-h1 h1 {
+        font-size: 28px !important;
+    }
+
+    .new-search-btn {
+        font-size: 12px !important;
+        padding: 9px 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .va-desktop-card {
+        display: none !important;
+    }
+
+    .va-mobile-card {
+        display: block !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .other-va-heading {
+        text-align: center !important;
+    }
+
+    .whole-div-new {
+        flex-direction: column !important;
+    }
+}
+
+@media (max-width:574px) {
+    .new-text-h1 h1 {
+        margin-bottom: 33px !important;
+        font-size: 28px !important;
+    }
+}
+
+@media (max-width: 479px) {
+    .registration.worker-profile .inner-div {
+        justify-content: center !important;
+    }
+
+    .registration.worker-profile .work-profile {
+        align-items: center !important;
+    }
+
+        .registration.worker-profile .work-profile button {
+            margin-left: 0 !important;
+        }
+
+    .new-search-btn {
+        padding: 6px 30px;
+        font-size: 10px;
+    }
+
+    .new-text-h1 h1 {
+        font-size: 26px !important;
+    }
+}
+
+@media (max-width: 408px) {
+    .footer .content-div > h2 {
+        text-align: center;
+    }
+
+    .new-text-h1 h1 {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    #div_YouTube {
+        width: 260px;
+    }
+}
+
+@media (max-width: 364px) {
+    .logo {
+        padding: 0 !important;
+    }
+
+    .mobile-menu .job-post {
+        padding: 0 0.75rem !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .va-mobile-card .w-75 {
+        width: 65% !important;
+    }
+
+    .va-mobile-card .w-25 {
+        width: 35% !important;
+    }
+
+    .wrapper-rating {
+        flex-direction: column;
+    }
+
+    .number-rating {
+        align-self: start !important;
+    }
+
+    .mobile-menu .job-post {
+        padding: 0 0.25rem !important;
+    }
+}
+
+@media (max-width: 295px) {
+    .mobile-menu .job-post button {
+        font-size: 0.575rem;
+    }
+}
